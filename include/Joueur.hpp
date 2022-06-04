@@ -3,21 +3,24 @@
 #include "Personnage.hpp"
 #include "Carre.hpp"
 #include "Cercle.hpp"
-#include "Arme.hpp"
+//#include "Arme.hpp"
 //#include "Commande.hpp"
 #include <vector>
+//#define img_name "enb.png"
 
 
 class Joueur: public Personnage{
 protected:
 
   int direction=0;
-  Arme arme;
-  static std::vector<std::string> numero_joueur;
+  //Arme arme;
+  const std::string img_name="res/paku.png";
+  static std::vector<std::string> vect_joueur;
+
 
 
 public:
-  Joueur(int posX, int  posY,std::string s);
+  Joueur(int posX, int  posY);
 
   void seDeplacer();
 
@@ -32,7 +35,6 @@ public:
 //accesseur
 void setDirection(const int& direction){ this->direction=direction;}
 int getDirection(){ return direction;}
-Arme getArme(){ return arme;}
 
 };
 

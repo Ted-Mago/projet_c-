@@ -1,20 +1,21 @@
 #include "../../include/Joueur.hpp"
 #include <iostream>
 
-Joueur::Joueur(int posX, int posY, std::string s){
+Joueur::Joueur(int posX, int posY){
 
   this->posX=posX;
   this->posY=posY;
   niveauDeVie=100;
   vitesseX=1;
   vitesseY=1;
-  Image *t= new Image(s, 0, 0, 32, 48, posX, posY);
+  image= *(new Image(img_name, 0, 0, 0, 0, posX, posY));
 
-  image=*t;
+
   //forme= new Carre(posX, posY, 32);
   this->forme=std::make_shared<Cercle>(posX, posY, 8);
   //arme
 }
+
 
 
 void Joueur::seDeplacer(){

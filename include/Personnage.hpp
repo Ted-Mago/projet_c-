@@ -8,9 +8,11 @@
 
 class Personnage: public ObjetDynamique{
 protected:
-  //Arme arme;
+  Arme arme;
 public:
 //  virtual afficher(Ui ui&);
+Arme getArme(){ return arme;}
+
   virtual void seDeplacer()=0;
   virtual void update()=0;
   //virtual void cacher()=0;

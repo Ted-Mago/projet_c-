@@ -2,6 +2,7 @@
 #define IMAGE_HPP
 #include "SFML/Graphics.hpp"
 #include <iostream>
+#include <memory>
 
 class Image{
 protected:
