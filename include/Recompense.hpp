@@ -2,7 +2,6 @@
 #define REC_HPP
 #include "ObjetFixe.hpp"
 #include "Cercle.hpp"
-#include "Joueur.hpp"
 
 class Recompense: public ObjetFixe {
 protected:

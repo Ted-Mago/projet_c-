@@ -1,8 +1,17 @@
 #include "../../include/Munition.hpp"
 
 void Munition::seDeplacer(){
-  posX=posX+vitesseX;
-  posY=posY+vitesseX;
+  if(direction==1 && posX>0)
+    posX=posX-vitesseX;
+  else if(direction==2 && posX<800)
+    posX=posX+vitesseX;
+  else if(direction==3 && posY>0)
+    posY=posY-vitesseY;
+  else if(direction==4 && posY<800)
+    posY=posY+vitesseY;
+  image.setPosition(posX, posY);
+  cercle_min.move(posX, posY);
+
 }
 
 void Munition::update(){
@@ -21,6 +30,7 @@ Munition::Munition(int posX, int posY, float chargeDest){
   this->posX=posX;
   this->posY=posY;
   this->chargeDest=chargeDest;
+  this->direction=0;
   cercle_min=*(new Cercle(posX, posY, 5));
 };
 

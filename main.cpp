@@ -69,13 +69,15 @@ int main()
         app.draw(i.get_sprite());
         pp.afficher(app);
         mm.afficher(app);
-        app.draw(en.getImage().get_sprite());
-
+        en.afficher(app);
+        joueur1.collision(joueur2);
         joueur1.afficher(app);
-          app.draw(joueur2.getImage().get_sprite());
+
+          joueur2.afficher(app);
           muni.afficher(app);
 
         app.draw(b->get_sprite());
+
 
         //joueur1.getImage().setPosition(x, y);
 

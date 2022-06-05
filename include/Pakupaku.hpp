@@ -8,10 +8,15 @@
 class Paku: public Recompense{
 public:
   Paku(const int& posx, const int& posy);
-  Cercle cercle_paku;
+  Cercle getCercle_paku(){ return cercle_paku;}
+  const Cercle& getCercle_paku() const { return cercle_paku;}
 // void afficher(sf::RenderWindow& r);
+
+
 private:
   const std::string img_name="res/paku.png";
+  Cercle cercle_paku;
+
 };
 
 #endif

@@ -22,7 +22,9 @@ public:
   float getNiveauDeVie() {return niveauDeVie;}
   const float& getNiveauDeVie() const {return niveauDeVie;}
   const Image& getImage() const { return image;}
-  
+  void setPosX(const int& posx){this->posX=posx;}
+  void setPosY(const int& posy){this->posY=posy;}
+
 
 
 

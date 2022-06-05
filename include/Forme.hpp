@@ -18,6 +18,9 @@ public:
   int& getPosY(){ return posY;}
   bool collision(const Cercle& c) const;
   bool collision(const Carre& c) const;
+  void setPosX(const int& posx){posX=posx;}
+  void setPosY(const int& posy){ posY=posy;}
+  void move(const int& posx, const int& posy){posX=posx; posY=posy;}
 
 
 };

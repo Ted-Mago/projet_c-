@@ -10,6 +10,7 @@ class Munition: public ObjetDynamique {
 protected:
   float chargeDest;
   Cercle cercle_min;
+  int direction;
 public:
   Munition(int posX, int posY, float chargeDest);
 
@@ -21,6 +22,8 @@ public:
   void afficher(sf::RenderWindow &r);
 
 //  void blesserEnnemi(Joueur j);
+  const Cercle& getCercle_min() const{return cercle_min;}
+  Cercle getCercle_min(){return cercle_min;}
 
 
 };

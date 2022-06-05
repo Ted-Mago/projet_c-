@@ -3,6 +3,10 @@
 #include "Personnage.hpp"
 #include "Carre.hpp"
 #include "Cercle.hpp"
+#include "Ennemi.hpp"
+#include "Pakupaku.hpp"
+#include "Munition.hpp"
+#include "Mur.hpp"
 //#include "Arme.hpp"
 //#include "Commande.hpp"
 #include <vector>
@@ -14,7 +18,7 @@ protected:
 
   int direction=0;
   //Arme arme;
-  const std::string img_name="res/paku.png";
+  const std::string img_name="res/player.png";
   static std::vector<std::string> vect_joueur;
   Cercle cercle_j;
 
@@ -31,11 +35,18 @@ public:
   void update();
   //void cacher();
 //  void changerArme(Arme a);
-
+//collision
+  bool collision(const Joueur& j);
+  bool collision(const Ennemi& e);
+  bool collision(const Munition& m);
+  bool collision(const Mur& m);
+  bool collision(const Paku& p);
 
 //accesseur
-void setDirection(const int& direction){ this->direction=direction;}
-int getDirection(){ return direction;}
+  void setDirection(const int& direction){ this->direction=direction;}
+  int getDirection(){ return direction;}
+  Cercle getCercle_j(){return cercle_j;}
+  const Cercle& getCercle_j() const { return cercle_j;}
 
 };
 

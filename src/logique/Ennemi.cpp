@@ -7,7 +7,7 @@ Ennemi::Ennemi(const int& posx, const int& posy){
   vitesseX=1;
   vitesseY=1;
   image= *(new Image(img_name, 0, 0, 0, 0, posX, posY));
-  arme=*(new Arme(posX, posY));
+  arme=*(new Arme(posX+26, posY+26));
   carre_en=*(new Carre(posX, posY, 8));
   //arme
 }
@@ -17,20 +17,31 @@ void Ennemi::seDeplacer(){
   int random_variable = std::rand();
   switch (random_variable%4) {
     case 0:
-      posX=posX-vitesseX;
+      if(posX>0)
+        posX=posX-vitesseX;
+      else posX=800;
       break;
     case 1:
-      posX=posX+vitesseX;
+      if(posX<800)
+        posX=posX+vitesseX;
+      else posX=0;
       break;
     case 3:
-      posY=posY-vitesseY;
-        break;
+      if(posY>0)
+        posY=posY-vitesseY;
+      else posY=800;
+      break;
     case 4:
-      posY=posY+vitesseY;
+      if(posY<800)
+        posY=posY+vitesseY;
+      else posY=0;
       break;
 
   }
+
   image.setPosition(posX, posY);
+  arme.seDeplacer(posX+26, posY+26);
+  carre_en.move(posX, posY);
 
 
 }

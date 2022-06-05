@@ -12,6 +12,7 @@ public:
   Cercle(const int& posX, const int& posY, int rayon): rayon(rayon){ this->posX=posX; this->posY=posY;};
   const int& getRayon() const { return rayon;}
   int getRayon() { return rayon;}
+  
 
   //méthodes
   bool collision(const Cercle& c) const;
