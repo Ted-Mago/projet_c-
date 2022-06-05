@@ -1,9 +1,9 @@
 #ifndef MONDE_HPP
 #define MONDE_HPP
 #include "Forme.hpp"
-#include "Carre.hpp"
 #include <cmath>
 
+//class Carre;
 class Cercle: public Forme{
 protected:
   int rayon;
@@ -14,8 +14,8 @@ public:
   int getRayon() { return rayon;}
 
   //méthodes
-  bool collision(Cercle& c);
-  //bool collision(Carre& c);
+  bool collision(const Cercle& c) const;
+  bool collision(const Carre& c) const;
 
 };
 

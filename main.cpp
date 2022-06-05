@@ -30,11 +30,11 @@ int main()
    Paku pp(100, 100);
    Mur mm(500, 200);
    Munition muni(12, 600);
-   Cercle cc1(11, 100, 8);
-   Cercle cc2(12, 100, 5);
+   Cercle cc1(12, 99, 8);
+   Cercle cc2(12, 100, 10);
    Cercle cc3(100, 1, 8);
-   Carre car(12, 23, 4);
-   Carre car1(12, 23, 4);
+   Carre car(12, 100, 4);
+   Carre car1(12, 100, 4);
    Carre cr(0, 0, 8);
    Joueur joueur1(0, 100);
    Joueur joueur2(12, 200);
@@ -80,7 +80,7 @@ int main()
         //joueur1.getImage().setPosition(x, y);
 
       //  std::cout<<cc1.collision(cc2)<<" "<<cc2.collision(cc1)<<" "<<cc3.collision(cc1)<<std::endl;
-        std::cout<<car.collision(car1)<<" "<<car1.collision(car)<<" "<<car.collision(cr)<<std::endl;
+        std::cout<<cc1.collision(car1)<<" "<<car1.collision(cc1)<<" "<<car.collision(cc2)<<std::endl;
 
 
         // Update the window

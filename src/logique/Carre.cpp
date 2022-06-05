@@ -1,7 +1,7 @@
 #include "../../include/Carre.hpp"
+#include "../../include/Cercle.hpp"
 
-
-bool Carre::collision(const Carre& c){
+bool Carre::collision(const Carre& c) const{
   int L1=getPosX() + getCote()/2;
   int L2=c.getPosX() - c.getCote()/2;
   int T1=getPosX() - getCote()/2;
@@ -16,3 +16,7 @@ bool Carre::collision(const Carre& c){
     return false;
   else return true;
 }
+
+bool Carre::collision(const Cercle& c) const{
+
+  return c.collision(*this);}

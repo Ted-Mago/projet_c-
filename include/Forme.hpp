@@ -3,6 +3,9 @@
 
 #include <memory>
 
+class Cercle;
+class Carre;
+
 class Forme{
 protected:
   int posX;
@@ -13,6 +16,8 @@ public:
   const int& getPosY() const {return posY;}
   int& getPosX(){ return posX;}
   int& getPosY(){ return posY;}
+  bool collision(const Cercle& c) const;
+  bool collision(const Carre& c) const;
 
 
 };
