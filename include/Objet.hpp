@@ -12,7 +12,6 @@ protected:
   int posY;
   float niveauDeVie;
   Image image;
-  forme_ptr forme;
 
 public:
   //accesseur
@@ -23,11 +22,11 @@ public:
   float getNiveauDeVie() {return niveauDeVie;}
   const float& getNiveauDeVie() const {return niveauDeVie;}
   const Image& getImage() const { return image;}
-  const forme_ptr getForme() const { return forme;}
+  
 
 
 
-  //virtual void afficher(Ui ui&);
+  //virtual void afficher(sf::RenderWindow &r)=0;
   //virtual void cacher(Ui ui&);
 
   //methode

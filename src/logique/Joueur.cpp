@@ -9,11 +9,9 @@ Joueur::Joueur(int posX, int posY){
   vitesseX=1;
   vitesseY=1;
   image= *(new Image(img_name, 0, 0, 0, 0, posX, posY));
-
-
-  //forme= new Carre(posX, posY, 32);
-  this->forme=std::make_shared<Cercle>(posX, posY, 8);
+  cercle_j=*(new Cercle(posX, posY, 8));
   //arme
+  arme=*(new Arme(posX, posY));
 }
 
 

@@ -6,9 +6,11 @@
 class ObjetFixe: public Objet{
 
 public:
-//  virtual void update()=0;
-  //void addObF(objetF_ptr o);
 
+  //void addObF(objetF_ptr o);
+  void afficher(sf::RenderWindow& r){
+    r.draw(image.get_sprite());
+  }
 };
 
 typedef std::shared_ptr<ObjetFixe> objetF_ptr;

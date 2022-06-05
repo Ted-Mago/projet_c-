@@ -17,13 +17,15 @@ this->munition=munition;
 this->image=image;
 niveauDeVie=1000;
 }
-Arme::Arme(){
-  posX=1000;
-  posY=1000;
-  munition_ptr m= std::make_shared<Munition>();
+Arme::Arme(const int& posx, const int& posy){
+  posX=posx;
+  posY=posy;
+  munition_ptr m= std::make_shared<Munition>(posx, posy);
 
   munition=*m;
 //  delete m;
 };
 
-//Arme::~Arme(){;}
+void Arme::afficher(sf::RenderWindow& r){
+    r.draw(image.get_sprite());
+  }

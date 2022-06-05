@@ -6,6 +6,7 @@
 #include "include/Joueur.hpp"
 #include "include/Pakupaku.hpp"
 #include "include/Mur.hpp"
+#include "include/Ennemi.hpp"
 #include <ctime>
 
 
@@ -32,6 +33,7 @@ int main()
    //Cercle *cc2=new Cercle(12, 100, 5);
    Joueur joueur1(0, 100);
    Joueur joueur2(12, 200);
+   Ennemi en(23, 200);
 
    Commande commande(sf::Keyboard::Left, sf::Keyboard::Right, sf::Keyboard::Up, sf::Keyboard::Down, sf::Keyboard::A );
    Commande commande2(sf::Keyboard::Q, sf::Keyboard::D, sf::Keyboard::Z, sf::Keyboard::W, sf::Keyboard::S );
@@ -55,12 +57,14 @@ int main()
         if(commande2.actionned(joueur2))
           std::cout<<joueur2.getPosX() << " "<< joueur2.getPosY()<<std::endl;
         // Clear screen
+        en.update();
         app.clear();
 
         // Draw the sprite
         app.draw(i.get_sprite());
         pp.afficher(app);
         mm.afficher(app);
+        app.draw(en.getImage().get_sprite());
 
         app.draw(joueur1.getImage().get_sprite());
           app.draw(joueur2.getImage().get_sprite());

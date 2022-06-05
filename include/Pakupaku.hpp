@@ -8,7 +8,8 @@
 class Paku: public Recompense{
 public:
   Paku(const int& posx, const int& posy);
-  void afficher(sf::RenderWindow& r);
+  Cercle cercle_paku;
+// void afficher(sf::RenderWindow& r);
 private:
   const std::string img_name="res/paku.png";
 };

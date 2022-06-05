@@ -9,18 +9,16 @@
 class Munition: public ObjetDynamique {
 protected:
   float chargeDest;
+  Cercle cercle_min;
 public:
-  Munition(int posX, int posY, float chargeDest){
-    this->posX=posX;
-    this->posY=posY;
-    this->chargeDest=chargeDest;
-    this->forme=std::make_shared<Cercle>(posX, posY, 5);
-  };
+  Munition(int posX, int posY, float chargeDest);
 
-  Munition();
+  Munition(const int& posx, const int& posy);
+  Munition()=default;
   //~Munition();
   void seDeplacer();
   void update();
+  void afficher(sf::RenderWindow &r);
 
 //  void blesserEnnemi(Joueur j);
 

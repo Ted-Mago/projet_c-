@@ -16,6 +16,7 @@ protected:
   //Arme arme;
   const std::string img_name="res/paku.png";
   static std::vector<std::string> vect_joueur;
+  Cercle cercle_j;
 
 
 
