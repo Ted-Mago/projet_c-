@@ -29,6 +29,7 @@ int main()
    time(&t);
    Paku pp(100, 100);
    Mur mm(500, 200);
+   Munition muni(12, 600);
   // Cercle *cc1=new Cercle;
    //Cercle *cc2=new Cercle(12, 100, 5);
    Joueur joueur1(0, 100);
@@ -66,9 +67,9 @@ int main()
         mm.afficher(app);
         app.draw(en.getImage().get_sprite());
 
-        app.draw(joueur1.getImage().get_sprite());
+        joueur1.afficher(app);
           app.draw(joueur2.getImage().get_sprite());
-
+          muni.afficher(app);
 
         app.draw(b->get_sprite());
 

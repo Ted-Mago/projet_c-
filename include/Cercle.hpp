@@ -1,6 +1,7 @@
 #ifndef MONDE_HPP
 #define MONDE_HPP
 #include "Forme.hpp"
+#include "Carre.hpp"
 
 class Cercle: public Forme{
 protected:
@@ -11,6 +12,9 @@ public:
   const int& getRayon() const { return rayon;}
   int getRayon() { return rayon;}
 
+  //méthodes
+  bool collision(Cercle& c);
+  bool collision(Carre& c);
 
 };
 

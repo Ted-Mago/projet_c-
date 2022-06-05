@@ -27,7 +27,7 @@ Munition::Munition(int posX, int posY, float chargeDest){
 void Munition::afficher(sf::RenderWindow &r){
   sf::CircleShape circle;
   circle.setRadius(cercle_min.getRayon());
-  circle.setOutlineColor(sf::Color::Red);
+  circle.setFillColor(sf::Color::Red);
   circle.setPosition(cercle_min.getPosX(), cercle_min.getPosY());
   r.draw(circle);
 }

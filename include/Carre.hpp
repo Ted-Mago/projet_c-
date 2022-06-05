@@ -1,6 +1,7 @@
 #ifndef CARRE_HPP
 #define CARRE_HPP
 #include "Forme.hpp"
+#include "Cercle.hpp"
 
 class Carre: public Forme{
 protected:
