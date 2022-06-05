@@ -2,16 +2,17 @@
 #define CARRE_HPP
 #include "Forme.hpp"
 #include "Cercle.hpp"
+#include <cmath>
 
 class Carre: public Forme{
 protected:
   int cote;
 public:
   Carre()=default;
-  Carre(int posX, int posY, int cote): cote(cote){ posX=posX; posY=posY;}
+  Carre(int posX, int posY, int cote): cote(cote){ this->posX=posX; this->posY=posY;}
   const int& getCote() const{ return cote;}
   int getCote() { return cote;}
-  bool collision(Carre& c);
+  bool collision(const Carre& c);
 //  bool collision(Cercle& c);
 
 };
