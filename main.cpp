@@ -30,8 +30,9 @@ int main()
    Paku pp(100, 100);
    Mur mm(500, 200);
    Munition muni(12, 600);
-  // Cercle *cc1=new Cercle;
-   //Cercle *cc2=new Cercle(12, 100, 5);
+   Cercle cc1(11, 100, 8);
+   Cercle cc2(12, 100, 5);
+   Cercle cc3(100, 1, 8);
    Joueur joueur1(0, 100);
    Joueur joueur2(12, 200);
    Ennemi en(23, 200);
@@ -75,7 +76,7 @@ int main()
 
         //joueur1.getImage().setPosition(x, y);
 
-
+        std::cout<<cc1.collision(cc2)<<" "<<cc2.collision(cc1)<<" "<<cc3.collision(cc1)<<std::endl;
 
 
         // Update the window

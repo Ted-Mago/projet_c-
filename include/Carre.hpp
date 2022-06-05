@@ -11,6 +11,8 @@ public:
   Carre(int posX, int posY, int cote): cote(cote){ posX=posX; posY=posY;}
   const int& getCote() const{ return cote;}
   int getCote() { return cote;}
+  bool collision(Carre& c);
+//  bool collision(Cercle& c);
 
 };
 

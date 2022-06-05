@@ -2,6 +2,7 @@
 #define MONDE_HPP
 #include "Forme.hpp"
 #include "Carre.hpp"
+#include <cmath>
 
 class Cercle: public Forme{
 protected:
@@ -14,7 +15,7 @@ public:
 
   //méthodes
   bool collision(Cercle& c);
-  bool collision(Carre& c);
+  //bool collision(Carre& c);
 
 };
 
