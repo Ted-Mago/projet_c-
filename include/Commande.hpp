@@ -12,7 +12,7 @@ protected:
 public:
   Commande(sf::Keyboard::Key l, sf::Keyboard::Key r, sf::Keyboard::Key u, sf::Keyboard::Key d, sf::Keyboard::Key a)
   : left(l), right(r), up(u), down(d), attack(a){};
-  bool actionned(Joueur &j);
+  void actionned(Joueur &j);
   std::string bouton();
 
 };

@@ -31,7 +31,7 @@ public:
 
   void seDeplacer();
 
-  void attaquer();
+  bool attaquer();
 //  void afficher(Ui ui&);
   //void seBlesser( Munition m&);
   void update();

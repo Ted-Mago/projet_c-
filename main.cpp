@@ -20,25 +20,23 @@ int main()
     // Load a sprite to display
     int x=120;
     int y=230;
-   Image *a= new Image("arme.png", 0,56, 48, 48, x, y);
-   Image *b=new Image ("arme2.png",45,0, 48, 48, y, x);
-   Image i("pelose.jpg", 0, 0, 800, 800, 0, 0);
 
    time_t t;
-   Image &ref_a=*a;
    time(&t);
-   Paku pp(100, 100);
+   Paku pp(650, 650);
    Mur mm(600, 600);
    Munition muni(12, 600);
+   Munition munii(400, 600);
    Cercle cc1(120, 99, 110);
    Cercle cc2(200, 100, 100);
    Cercle cc3(0, 1, 8);
    Carre car(120, 100, 100);
    Carre car1(300, 100, 100);
    Carre cr(0, 0, 8);
-   Joueur joueur1(470, 640);
+   Joueur joueur1(470, 208);
    Joueur joueur2(12, 200);
    Ennemi en(23, 200);
+
 
    Commande commande(sf::Keyboard::Left, sf::Keyboard::Right, sf::Keyboard::Up, sf::Keyboard::Down, sf::Keyboard::A );
    Commande commande2(sf::Keyboard::Q, sf::Keyboard::D, sf::Keyboard::Z, sf::Keyboard::W, sf::Keyboard::S );
@@ -62,13 +60,14 @@ int main()
         commande2.actionned(joueur2);
           //std::cout<<joueur2.getPosX() << " "<< joueur2.getPosY()<<std::endl;
         // Clear screen
-        //en.update();
+        en.update();
         app.clear();
 
         // Draw the sprite
-        app.draw(i.get_sprite());
-        pp.afficher(app);
+
+
         mm.afficher(app);
+        pp.afficher(app);
         en.afficher(app);
         joueur1.collision(joueur2);
         joueur1.collision(en);
@@ -78,7 +77,11 @@ int main()
         joueur1.afficher(app);
         joueur1.getCercle_j().afficherC(app);
         joueur2.getCercle_j().afficherC(app);
-        muni.collision(mm);
+        joueur1.update();
+        //joueur2.getArme().nbr_plus();
+        joueur2.getArme().tir(2);
+        muni.collision(munii);
+        pp.collision(mm);
         mm.getCarre_mur().afficherC(app);
         car.afficherC(app);
         car1.afficherC(app);
@@ -90,7 +93,7 @@ int main()
           muni.afficher(app);
           muni.getCercle_min().afficherC(app);
 
-        app.draw(b->get_sprite());
+
 
 
         //joueur1.getImage().setPosition(x, y);

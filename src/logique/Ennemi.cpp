@@ -48,4 +48,8 @@ void Ennemi::seDeplacer(){
 
 void Ennemi::update(){
   this->seDeplacer();
+  std::srand(std::time(nullptr)); // use current time as seed for random generator
+  int random_variable = std::rand();
+  arme.tir(1+random_variable%4);
+  arme.nbr_plus();
 }

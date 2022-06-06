@@ -17,6 +17,7 @@ public:
   Munition(int posX, int posY, float chargeDest);
 
   Munition(const int& posx, const int& posy);
+  Munition(const Munition& m);
   Munition()=default;
   //~Munition();
   void seDeplacer();

@@ -17,6 +17,7 @@ public:
   void update();
   Carre getCarre_en(){return carre_en;}
   const Carre& getCarre_en() const { return carre_en;}
+  void attaquer();
 
 
 

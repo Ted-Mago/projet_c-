@@ -18,7 +18,7 @@ public:
   //virtual void cacher()=0;
 
   //accesseur
-  Arme getArme(){ return arme;}
+  Arme& getArme(){ return arme;}
 
 };
 

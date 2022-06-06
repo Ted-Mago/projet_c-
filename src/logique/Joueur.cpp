@@ -10,7 +10,7 @@ Joueur::Joueur(int posX, int posY){
   vitesseY=2;
   image= *(new Image(img_name, 0, 0, size_jo, size_jo, posX, posY));
   cercle_j=*(new Cercle(posX, posY, size_jo/2));
-  //arme
+  last_dir=2;
   arme=*(new Arme(posX+size_jo, posY+size_jo));
 }
 
@@ -26,7 +26,6 @@ void Joueur::seDeplacer(){
     posY=posY-vitesseY;
   else if(direction==4 && posY<size_win-size_jo)
     posY=posY+vitesseY;
-  else perror("erreur s");
   arme.setDirection(direction);
   image.setPosition(posX, posY);
   arme.seDeplacer(posX+size_jo, posY+size_jo);
@@ -36,6 +35,7 @@ void Joueur::seDeplacer(){
 }
 void Joueur::update(){
   this->seDeplacer();
+  arme.update();
 }
 
 bool Joueur::collision(const Joueur& j){
@@ -88,4 +88,9 @@ bool Joueur::collision(Paku& p){
     return true;
   }
   else return false;
+}
+
+bool Joueur::attaquer(){
+  if(last_dir!=0) return arme.tir(last_dir);
+  return false;
 }

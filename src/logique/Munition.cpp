@@ -2,15 +2,15 @@
 #include <iostream>
 
 void Munition::seDeplacer(){
-  if(direction==1 && posX>0)
+  if(posX+size_min<0 || posX>size_win || posY+size_min<0 || posY>size_win) niveauDeVie=0;
+  if(direction==1 && posX>-4*size_min)
     posX=posX-vitesseX;
-  else if(direction==2 && posX<800)
+  else if(direction==2 && posX<size_win)
     posX=posX+vitesseX;
-  else if(direction==3 && posY>0)
+  else if(direction==3 && posY>-4*size_min)
     posY=posY-vitesseY;
-  else if(direction==4 && posY<800)
+  else if(direction==4 && posY<size_win)
     posY=posY+vitesseY;
-  image.setPosition(posX, posY);
   cercle_min.move(posX, posY);
 
 }
@@ -24,12 +24,24 @@ Munition::Munition(const int& posx, const int& posy){
   this->posY=posy;
   this->chargeDest=14;
   this->niveauDeVie=1000;
+  this->direction=0;
   cercle_min=*(new Cercle(posX, posY, 5));
   vitesseX=5;
   vitesseY=5;
 }
 //Munition::~Munition(){}
+Munition::Munition(const Munition& m){
+  posX=m.posX;
+  posY=m.posY;
+  chargeDest=m.chargeDest;
+  niveauDeVie=m.niveauDeVie;
+  cercle_min=m.cercle_min;
+  vitesseX=m.vitesseX;
+  vitesseY=m.vitesseY;
+  direction=m.direction;
 
+
+}
 Munition::Munition(int posX, int posY, float chargeDest){
   this->posX=posX;
   this->posY=posY;
@@ -52,7 +64,6 @@ void Munition::afficher(sf::RenderWindow &r){
 bool Munition::collision(const Mur& m){
   if(cercle_min.collision(m.getCarre_mur())){
     niveauDeVie=0;
-    std::cout<< "col muni m"<<std::endl;
     return true;
   }
 
@@ -64,7 +75,6 @@ bool Munition::collision(Munition& m){
   if(cercle_min.collision(m.cercle_min)){
     niveauDeVie=0;
     m.niveauDeVie=0;
-    std::cout<<" col muni mui"<<std::endl;
     return true;
   }
   else return false;
