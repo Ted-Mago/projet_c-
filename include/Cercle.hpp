@@ -19,6 +19,11 @@ public:
     circle.setFillColor(sf::Color::Red);
     circle.setPosition(getPosX(), getPosY());
     r.draw(circle);
+    sf::RectangleShape ref;
+    ref.setSize(sf::Vector2f(rayon*2, rayon*2));
+    ref.setFillColor(sf::Color::Red);
+    ref.setPosition(getPosX()-2*rayon, getPosY()-2*rayon);
+    r.draw(ref);
   }
 
 

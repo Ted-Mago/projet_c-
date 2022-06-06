@@ -17,7 +17,7 @@ Joueur::Joueur(int posX, int posY){
 
 
 void Joueur::seDeplacer(){
-
+  last_dir=direction;
   if(direction==1 && posX>0)
     posX=posX-vitesseX;
   else if(direction==2 && posX<size_win-size_jo)
@@ -60,9 +60,31 @@ bool Joueur::collision(Munition& m){
   if(cercle_j.collision(m.getCercle_min())){
     niveauDeVie=niveauDeVie-m.getChargeDest();
     m.setNiveauDeVie(0);
-    std::cout<< "col jo e"<<std::endl;
+    std::cout<< "col jo muni"<<std::endl;
     return true;
   }
+  else return false;
+}
 
+bool Joueur::collision(const Mur& m){
+  if(cercle_j.collision(m.getCarre_mur())){
+    if(last_dir%2==0) direction=last_dir-1;
+    else direction=last_dir+1;
+    seDeplacer();
+    std::cout<< "col jo mur"<<std::endl;
+    return true;
+
+  }
+
+  else return false;
+}
+
+bool Joueur::collision(const Paku& p){
+  if(cercle_j.collision(p.getCercle_paku())){
+    score++;
+    arme.nbr_plus();
+    std::cout<< "col jo paku"<<std::endl;
+    return true;
+  }
   else return false;
 }

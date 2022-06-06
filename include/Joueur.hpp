@@ -17,6 +17,8 @@ class Joueur: public Personnage{
 protected:
 
   int direction=0;
+  int score;
+  int last_dir=0;
   //Arme arme;
   const std::string img_name="res/player.png";
   static std::vector<std::string> vect_joueur;

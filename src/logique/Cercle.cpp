@@ -13,8 +13,8 @@ bool Cercle::collision(const Cercle& c) const{
 }
 
 bool Cercle::collision(const Carre& c) const{
-  int x=abs(getPosX()-c.getPosX());
-  int y=abs(getPosY()-c.getPosY());
+  int x=abs(getPosX()-2*getRayon()-c.getPosX());
+  int y=abs(getPosY()-2*getRayon()-c.getPosY());
   int dist=(c.getCote()/2 +getRayon());
   if(x>dist || y>dist)
     return false;
@@ -25,3 +25,9 @@ bool Cercle::collision(const Carre& c) const{
     return (dist_2 <= pow(getRayon(), 2));
   }
 }
+/*
+bool Cercle::collision(const Carre& c) const{
+  Carre comp(posX-2*rayon, posY-2*rayon, 2*rayon);
+
+  return comp.collision(c);
+}*/

@@ -24,6 +24,7 @@ public:
   Munition getMunition(){ return munition;}
   const Munition& getMunition() const{ return munition;}
   void nbr_plus(){ nbr_munitions++;}
+  void nbr_moins(){ nbr_munitions--;}
   int getDirection(){return direction;}
   void setDirection(int dir){ direction=dir;}
   void seDeplacer(const int& posx, const int& posy);

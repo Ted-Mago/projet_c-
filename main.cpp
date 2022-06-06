@@ -30,11 +30,11 @@ int main()
    Paku pp(100, 100);
    Mur mm(500, 200);
    Munition muni(12, 600);
-   Cercle cc1(12, 99, 8);
-   Cercle cc2(12, 100, 10);
-   Cercle cc3(100, 1, 8);
-   Carre car(12, 100, 4);
-   Carre car1(12, 100, 4);
+   Cercle cc1(120, 99, 110);
+   Cercle cc2(200, 100, 100);
+   Cercle cc3(0, 1, 8);
+   Carre car(120, 100, 100);
+   Carre car1(300, 100, 100);
    Carre cr(0, 0, 8);
    Joueur joueur1(470, 640);
    Joueur joueur2(12, 200);
@@ -73,9 +73,15 @@ int main()
         joueur1.collision(joueur2);
         joueur1.collision(en);
         joueur1.collision(muni);
+        joueur1.collision(mm);
+        joueur1.collision(pp);
         joueur1.afficher(app);
         joueur1.getCercle_j().afficherC(app);
         joueur2.getCercle_j().afficherC(app);
+        mm.getCarre_mur().afficherC(app);
+        car.afficherC(app);
+        car1.afficherC(app);
+        cr.afficherC(app);
 
           joueur2.afficher(app);
           muni.setDirection(2);
@@ -88,8 +94,8 @@ int main()
 
         //joueur1.getImage().setPosition(x, y);
 
-      //  std::cout<<cc1.collision(cc2)<<" "<<cc2.collision(cc1)<<" "<<cc3.collision(cc1)<<std::endl;
-      //  std::cout<<cc1.collision(car1)<<" "<<car1.collision(cc1)<<" "<<car.collision(cc2)<<std::endl;
+      // std::cout<<cc1.collision(cc2)<<" "<<cc2.collision(cc1)<<" "<<cc3.collision(cc1)<<std::endl;
+       std::cout<<car1.collision(car)<<" "<<car1.collision(car)<<" "<<car.collision(cr)<<std::endl;
 
 
         // Update the window
