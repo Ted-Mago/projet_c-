@@ -21,18 +21,19 @@ public:
     Arme(const int& posx, const int& posy);
     Arme(const int& posx, const int& posy, Munition munition, Image image);
     Arme()=default;
-  void seDeplacer();
-  bool tir(int i);
-  void update();
-  void afficher(sf::RenderWindow& r);
-  Munition getMunition(){ return munition;}
-  const Munition& getMunition() const{ return munition;}
-  void nbr_plus(){ nbr_munitions=nbr_munitions+1;}
-  void nbr_moins(){ nbr_munitions=nbr_munitions-1;}
-  void setNbr_muni(int nbr){ nbr_munitions=nbr;}
-  int getDirection(){return direction;}
-  void setDirection(int dir){ direction=dir;}
-  void seDeplacer(const int& posx, const int& posy);
+    
+    void seDeplacer();
+    bool tir(int i);
+    void update();
+    void afficher(sf::RenderWindow& r);
+    Munition getMunition(){ return munition;}
+    const Munition& getMunition() const{ return munition;}
+    void nbr_plus(){ nbr_munitions=nbr_munitions+1;}
+    void nbr_moins(){ nbr_munitions=nbr_munitions-1;}
+    void setNbr_muni(int nbr){ nbr_munitions=nbr;}
+    int getDirection(){return direction;}
+    void setDirection(int dir){ direction=dir;}
+    void seDeplacer(const int& posx, const int& posy);
 
 };
 

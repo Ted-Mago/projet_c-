@@ -13,5 +13,6 @@ private:
   const std::string img_name="res/mur.png";
   Carre carre_mur;
 };
+typedef std::shared_ptr<Mur> mur_ptr;
 
 #endif

@@ -1,8 +1,8 @@
 #include "../../include/Ennemi.hpp"
 
 Ennemi::Ennemi(const int& posx, const int& posy){
-  this->posX=posX;
-  this->posY=posY;
+  this->posX=posx;
+  this->posY=posy;
   niveauDeVie=100;
   vitesseX=1;
   vitesseY=1;
@@ -48,8 +48,4 @@ void Ennemi::seDeplacer(){
 
 void Ennemi::update(){
   this->seDeplacer();
-  std::srand(std::time(nullptr)); // use current time as seed for random generator
-  int random_variable = std::rand();
-  arme.tir(1+random_variable%4);
-  arme.nbr_plus();
 }

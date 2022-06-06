@@ -25,9 +25,3 @@ bool Cercle::collision(const Carre& c) const{
     return (dist_2 <= pow(getRayon(), 2));
   }
 }
-/*
-bool Cercle::collision(const Carre& c) const{
-  Carre comp(posX-2*rayon, posY-2*rayon, 2*rayon);
-
-  return comp.collision(c);
-}*/

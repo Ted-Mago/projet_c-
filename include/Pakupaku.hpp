@@ -21,4 +21,7 @@ private:
 
 };
 
+typedef std::shared_ptr<Paku> paku_ptr;
+
+
 #endif

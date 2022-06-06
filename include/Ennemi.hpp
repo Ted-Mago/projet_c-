@@ -22,6 +22,8 @@ public:
 
 
 };
+typedef std::shared_ptr<Ennemi> en_ptr;
+
 
 
 #endif

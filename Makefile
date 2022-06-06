@@ -8,9 +8,9 @@ EXES=main
 
 all: $(EXES)
 
-main: main.o Image.o Commande.o Arme.o Munition.o Pakupaku.o  Joueur.o Carre.o Cercle.o Mur.o Ennemi.o Personnage.o
-	$(CPP) $(CPPFLAGS) main.o Cercle.o Carre.o Arme.o Munition.o Image.o Pakupaku.o  Joueur.o Commande.o Mur.o Ennemi.o Personnage.o -o main $(LIBS)
-main.o: main.cpp include/Image.hpp include/Commande.hpp include/Arme.hpp include/Munition.hpp include/Pakupaku.hpp include/Carre.hpp include/Mur.hpp include/Ennemi.hpp include/Personnage.hpp include/Cercle.hpp include/Joueur.hpp include/configuration.hpp
+main: main.o Image.o Commande.o Arme.o Munition.o Pakupaku.o  Joueur.o Carre.o Cercle.o Mur.o Ennemi.o Personnage.o Partie.o
+	$(CPP) $(CPPFLAGS) main.o Cercle.o Carre.o Arme.o Munition.o Image.o Pakupaku.o  Joueur.o Commande.o Mur.o Ennemi.o Personnage.o Partie.o -o main $(LIBS)
+main.o: main.cpp include/Image.hpp include/Commande.hpp include/Arme.hpp include/Munition.hpp include/Pakupaku.hpp include/Carre.hpp include/Mur.hpp include/Ennemi.hpp include/Personnage.hpp include/Cercle.hpp include/Joueur.hpp include/configuration.hpp include/Partie.hpp
 		$(CPP) $(CPPFLAGS) -c main.cpp $(LIBS)
 Commande.o: src/logique/Commande.cpp  include/Commande.hpp include/Joueur.hpp
 	$(CPP) $(CPPFLAGS) -c src/logique/Commande.cpp $(LIBS)
@@ -39,6 +39,9 @@ Cercle.o: src/logique/Cercle.cpp include/Cercle.hpp include/Carre.hpp
 
 Carre.o: src/logique/Carre.cpp include/Carre.hpp
 	$(CPP) $(CPPFLAGS) -c src/logique/Carre.cpp $(LIBS)
+Partie.o: src/logique/Partie.cpp include/Partie.hpp
+	$(CPP) $(CPPFLAGS) -c src/logique/Partie.cpp $(LIBS)
+
 
 
 
