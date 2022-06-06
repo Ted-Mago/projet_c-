@@ -28,7 +28,7 @@ int main()
    Image &ref_a=*a;
    time(&t);
    Paku pp(100, 100);
-   Mur mm(500, 200);
+   Mur mm(600, 600);
    Munition muni(12, 600);
    Cercle cc1(120, 99, 110);
    Cercle cc2(200, 100, 100);
@@ -78,6 +78,7 @@ int main()
         joueur1.afficher(app);
         joueur1.getCercle_j().afficherC(app);
         joueur2.getCercle_j().afficherC(app);
+        muni.collision(mm);
         mm.getCarre_mur().afficherC(app);
         car.afficherC(app);
         car1.afficherC(app);
@@ -95,7 +96,7 @@ int main()
         //joueur1.getImage().setPosition(x, y);
 
       // std::cout<<cc1.collision(cc2)<<" "<<cc2.collision(cc1)<<" "<<cc3.collision(cc1)<<std::endl;
-       std::cout<<car1.collision(car)<<" "<<car1.collision(car)<<" "<<car.collision(cr)<<std::endl;
+    //   std::cout<<car1.collision(car)<<" "<<car1.collision(car)<<" "<<car.collision(cr)<<std::endl;
 
 
         // Update the window

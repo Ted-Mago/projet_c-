@@ -3,6 +3,7 @@
 #include "ObjetDynamique.hpp"
 #include "SFML/Graphics.hpp"
 #include "Cercle.hpp"
+#include "Mur.hpp"
 
 
 //class Joueur;
@@ -21,6 +22,8 @@ public:
   void seDeplacer();
   void update();
   void afficher(sf::RenderWindow &r);
+  bool collision(const Mur& m);
+  bool collision(Munition& m);
 
 //  void blesserEnnemi(Joueur j);
   const Cercle& getCercle_min() const{return cercle_min;}

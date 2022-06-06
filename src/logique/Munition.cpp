@@ -1,4 +1,5 @@
 #include "../../include/Munition.hpp"
+#include <iostream>
 
 void Munition::seDeplacer(){
   if(direction==1 && posX>0)
@@ -46,4 +47,25 @@ void Munition::afficher(sf::RenderWindow &r){
   circle.setFillColor(sf::Color::Red);
   circle.setPosition(cercle_min.getPosX()+2*cercle_min.getRayon(), cercle_min.getPosY()+2*cercle_min.getRayon());
   r.draw(circle);
+}
+
+bool Munition::collision(const Mur& m){
+  if(cercle_min.collision(m.getCarre_mur())){
+    niveauDeVie=0;
+    std::cout<< "col muni m"<<std::endl;
+    return true;
+  }
+
+  else return false;
+
+}
+
+bool Munition::collision(Munition& m){
+  if(cercle_min.collision(m.cercle_min)){
+    niveauDeVie=0;
+    m.niveauDeVie=0;
+    std::cout<<" col muni mui"<<std::endl;
+    return true;
+  }
+  else return false;
 }

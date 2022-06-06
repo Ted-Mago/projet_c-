@@ -42,7 +42,7 @@ public:
   bool collision(const Ennemi& e);
   bool collision(Munition& m);
   bool collision(const Mur& m);
-  bool collision(const Paku& p);
+  bool collision(Paku& p);
 
 //accesseur
   void setDirection(const int& direction){ this->direction=direction;}

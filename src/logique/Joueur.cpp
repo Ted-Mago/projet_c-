@@ -79,10 +79,11 @@ bool Joueur::collision(const Mur& m){
   else return false;
 }
 
-bool Joueur::collision(const Paku& p){
+bool Joueur::collision(Paku& p){
   if(cercle_j.collision(p.getCercle_paku())){
     score++;
     arme.nbr_plus();
+    p.setNiveauDeVie(0);
     std::cout<< "col jo paku"<<std::endl;
     return true;
   }
