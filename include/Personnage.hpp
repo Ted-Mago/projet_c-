@@ -2,7 +2,7 @@
 #define PERSO_HPP
 #include "Arme.hpp"
 #include "ObjetDynamique.hpp"
-#define size_perso 100
+
 
 
 

@@ -36,7 +36,7 @@ int main()
    Carre car(12, 100, 4);
    Carre car1(12, 100, 4);
    Carre cr(0, 0, 8);
-   Joueur joueur1(0, 100);
+   Joueur joueur1(470, 640);
    Joueur joueur2(12, 200);
    Ennemi en(23, 200);
 
@@ -56,13 +56,13 @@ int main()
 
 
         }
-        if( commande.actionned(joueur1) )
+      commande.actionned(joueur1);
 
-        std::cout<<joueur1.getPosX() << " "<< joueur1.getPosY()<<std::endl;
-        if(commande2.actionned(joueur2))
-          std::cout<<joueur2.getPosX() << " "<< joueur2.getPosY()<<std::endl;
+      //  std::cout<<joueur1.getPosX() << " "<< joueur1.getPosY()<<std::endl;
+        commande2.actionned(joueur2);
+          //std::cout<<joueur2.getPosX() << " "<< joueur2.getPosY()<<std::endl;
         // Clear screen
-        en.update();
+        //en.update();
         app.clear();
 
         // Draw the sprite
@@ -71,10 +71,17 @@ int main()
         mm.afficher(app);
         en.afficher(app);
         joueur1.collision(joueur2);
+        joueur1.collision(en);
+        joueur1.collision(muni);
         joueur1.afficher(app);
+        joueur1.getCercle_j().afficherC(app);
+        joueur2.getCercle_j().afficherC(app);
 
           joueur2.afficher(app);
+          muni.setDirection(2);
+          muni.seDeplacer();
           muni.afficher(app);
+          muni.getCercle_min().afficherC(app);
 
         app.draw(b->get_sprite());
 
@@ -82,7 +89,7 @@ int main()
         //joueur1.getImage().setPosition(x, y);
 
       //  std::cout<<cc1.collision(cc2)<<" "<<cc2.collision(cc1)<<" "<<cc3.collision(cc1)<<std::endl;
-        std::cout<<cc1.collision(car1)<<" "<<car1.collision(cc1)<<" "<<car.collision(cc2)<<std::endl;
+      //  std::cout<<cc1.collision(car1)<<" "<<car1.collision(cc1)<<" "<<car.collision(cc2)<<std::endl;
 
 
         // Update the window

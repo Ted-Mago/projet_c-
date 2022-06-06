@@ -32,9 +32,8 @@ Arme::Arme(const int& posx, const int& posy){
   posX=posx;
   posY=posy;
   nbr_munitions=0;
-  munition_ptr m= std::make_shared<Munition>(posx, posy);
-  munition=*m;
-  image= *(new Image("res/arme.png", 0, 0, 8, 8, posX, posY));
+  munition=*(new Munition(posx, posy));
+  image= *(new Image(arm_img_name, 0, 0, size_arm, size_arm, posX, posY));
 
 
 //  delete m;

@@ -1,5 +1,6 @@
 #ifndef OBJET_HPP
 #define OBJET_HPP
+#include "configuration.hpp"
 #include "SFML/Graphics.hpp"
 #include "Image.hpp"
 #include "Forme.hpp"
@@ -24,6 +25,7 @@ public:
   const Image& getImage() const { return image;}
   void setPosX(const int& posx){this->posX=posx;}
   void setPosY(const int& posy){this->posY=posy;}
+  void setNiveauDeVie(const float& ndv){ niveauDeVie=ndv;}
 
 
 

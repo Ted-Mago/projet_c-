@@ -22,7 +22,10 @@ Munition::Munition(const int& posx, const int& posy){
   this->posX=posx;
   this->posY=posy;
   this->chargeDest=14;
+  this->niveauDeVie=1000;
   cercle_min=*(new Cercle(posX, posY, 5));
+  vitesseX=5;
+  vitesseY=5;
 }
 //Munition::~Munition(){}
 
@@ -30,7 +33,10 @@ Munition::Munition(int posX, int posY, float chargeDest){
   this->posX=posX;
   this->posY=posY;
   this->chargeDest=chargeDest;
+  this->niveauDeVie=1000;
   this->direction=0;
+  vitesseX=5;
+  vitesseY=5;
   cercle_min=*(new Cercle(posX, posY, 5));
 };
 
@@ -38,6 +44,6 @@ void Munition::afficher(sf::RenderWindow &r){
   sf::CircleShape circle;
   circle.setRadius(cercle_min.getRayon());
   circle.setFillColor(sf::Color::Red);
-  circle.setPosition(cercle_min.getPosX(), cercle_min.getPosY());
+  circle.setPosition(cercle_min.getPosX()+2*cercle_min.getRayon(), cercle_min.getPosY()+2*cercle_min.getRayon());
   r.draw(circle);
 }

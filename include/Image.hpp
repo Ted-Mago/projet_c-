@@ -25,4 +25,6 @@ public:
 
 };
 
+typedef std::shared_ptr<Image> img_ptr;
+
 #endif

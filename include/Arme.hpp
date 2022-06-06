@@ -2,6 +2,7 @@
 #define ARME_HPP
 #include "ObjetDynamique.hpp"
 #include "Munition.hpp"
+#include "Image.hpp"
 
 
 

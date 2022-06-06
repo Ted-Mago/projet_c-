@@ -38,7 +38,7 @@ public:
 //collision
   bool collision(const Joueur& j);
   bool collision(const Ennemi& e);
-  bool collision(const Munition& m);
+  bool collision(Munition& m);
   bool collision(const Mur& m);
   bool collision(const Paku& p);
 

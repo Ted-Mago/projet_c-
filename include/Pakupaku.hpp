@@ -2,7 +2,7 @@
 #define  PAKU_HPP
 #include "Recompense.hpp"
 #include <memory>
-#define VAL_PAKU 2
+
 
 
 class Paku: public Recompense{
