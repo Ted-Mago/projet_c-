@@ -42,16 +42,6 @@ Munition::Munition(const Munition& m){
 
 
 }
-Munition::Munition(int posX, int posY, float chargeDest){
-  this->posX=posX;
-  this->posY=posY;
-  this->chargeDest=chargeDest;
-  this->niveauDeVie=1000;
-  this->direction=0;
-  vitesseX=5;
-  vitesseY=5;
-  cercle_min=*(new Cercle(posX, posY, 5));
-};
 
 void Munition::afficher(sf::RenderWindow &r){
   sf::CircleShape circle;

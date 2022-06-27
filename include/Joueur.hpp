@@ -10,7 +10,16 @@
 #include <ctime>
 #include <vector>
 
+/**
 
+ * @file	ObjetFixe.hpp
+ * @brief	contient la classe des objets fixe;
+ * @author Teddy Magoga
+ <teddy.magoga@etu.sorbonne-universite.fr>
+ * @note fait appel à du SFML pour l'affichage
+ * @date	2022
+ * @copyright	droits reservés aux élèves de Polytech.
+*/
 
 class Joueur: public Personnage{
 protected:
@@ -18,8 +27,7 @@ protected:
   int direction=0;
   int score;
   int last_dir=0;
-  //Arme arme;
-  static std::vector<std::string> vect_joueur;
+  //Pour tirer
   Cercle cercle_j;
   time_t last_col;
   time_t col_time;
@@ -29,16 +37,15 @@ protected:
 
 
 public:
+
   Joueur(int posX, int  posY, std::string s);
 
   void seDeplacer();
 
   bool attaquer();
-//  void afficher(Ui ui&);
-  //void seBlesser( Munition m&);
+
   void update();
-  //void cacher();
-//  void changerArme(Arme a);
+
 //collision
   bool collision(Joueur& j);
   bool collision(const Ennemi& e);
@@ -51,6 +58,7 @@ public:
   int getDirection(){ return direction;}
   Cercle getCercle_j(){return cercle_j;}
   const Cercle& getCercle_j() const { return cercle_j;}
+  const int& getScore() const{ return score;}
 
 };
 typedef std::shared_ptr<Joueur> joueur_ptr;

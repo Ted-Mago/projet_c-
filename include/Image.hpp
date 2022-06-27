@@ -4,21 +4,28 @@
 #include <iostream>
 #include <memory>
 
+
+
 class Image{
 protected:
   sf::Texture texture;
   sf::Sprite sprite;
 public:
+
   Image(const std::string& s, const int& im_posX, const int& im_posY , int l, int h, const int& posX, const int& posY);
   Image()=default;
   Image(const Image& o);
   Image& operator=(const Image& o);
+
+
   void addTexture(const std::string& s, const int& im_posX, const int& im_posY , int l, int h);
   void changeTexture(const Image& o);
-  //int& _posX(){ return posX;}
-  //int& _posY(){ return posY;}
+
+
   sf::Sprite get_sprite() const {return sprite;}
   sf::Texture get_texture() const {return texture;}
+
+  
   void setPosition(const int& posX, const int& posY ){sprite.setPosition(posX, posY);}
 
 

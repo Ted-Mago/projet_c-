@@ -18,6 +18,7 @@ void Partie::creerCarte(){
  for(int i=0; i<8; i++){
    mur_ptr mur=std::make_shared<Mur>(size_mur*i,  size_win-size_mur/4);
    mes_murs.push_back(mur);
+
  }
  /*mur aleatoire et paku*/
 
@@ -28,6 +29,7 @@ void Partie::creerCarte(){
    paku_ptr paku= std::make_shared<Paku>((i+1)*size_mur, size_mur*3+2*size_paku);
    mes_murs.push_back(mur);
    mes_paku.push_back(paku);
+   nbr_paku++;
  }
 
  for(int i=0; i<5; i++){
@@ -36,6 +38,7 @@ void Partie::creerCarte(){
    paku_ptr paku= std::make_shared<Paku>((i+1)*size_mur, size_mur*5+2*size_paku);
    mes_murs.push_back(mur);
    mes_paku.push_back(paku);
+    nbr_paku++;
  }
 
  for(int i=0; i<3; i++){
@@ -44,10 +47,12 @@ void Partie::creerCarte(){
    paku_ptr paku= std::make_shared<Paku>((i+1)*size_mur, size_mur*7+2*size_paku);
    mes_murs.push_back(mur);
    mes_paku.push_back(paku);
+    nbr_paku++;
  }
- for(int i=0; i< 3; i++){
+ for(int i=0; i< 6; i++){
     paku_ptr paku= std::make_shared<Paku>((i+2)*size_mur, size_mur);
     mes_paku.push_back(paku);
+    nbr_paku++;
  }
 }
 void Partie::init() {
@@ -77,7 +82,7 @@ void Partie::collision(){
     for(int j=0; j<mes_paku.size(); j++){
       if(mes_joueurs[i]->collision(*mes_paku[j]))
         nbr_paku--;
-        std::cout<<nbr_paku<<std::endl;
+
     }
 
     for(int j=0; j<mes_fantomes.size(); j++){
@@ -120,14 +125,25 @@ void Partie::fin(sf::RenderWindow &r){
   sf::Font font;
   font.loadFromFile("res/arial.ttf");
   if(nbr_paku<=0){
+
     r.clear();
+    sf::Text score;
+    score.setFont(font);
+    if(mes_joueurs[0]->getScore()>mes_joueurs[1]->getScore())
+      score.setString(std::to_string(mes_joueurs[0]->getScore()));
+    else score.setString(std::to_string(mes_joueurs[1]->getScore()));
     sf::Text text;
 
     text.setFont(font);
     text.setString("Win Win!");
     text.setCharacterSize(24);
     text.setFillColor(sf::Color::Red);
+    score.setCharacterSize(16);
+    score.setFillColor(sf::Color::Yellow);
+    score.setPosition(100,100);
+
     r.draw(text);
+    r.draw(score);
   }
    else {
      r.clear();
@@ -147,12 +163,17 @@ void Partie::afficher(sf::RenderWindow& r){
   for(int i=0; i<mes_paku.size(); i++){
     mes_paku[i]->afficher(r);}
   for(int i=0; i<mes_murs.size(); i++){
-    mes_murs[i]->afficher(r);}
+    mes_murs[i]->afficher(r);
+  //  mes_murs[i]->getCarre_mur().afficher(r);
+  }
   for(int i=0; i<mes_fantomes.size(); i++){
     mes_fantomes[i]->afficher(r);
+  //  mes_fantomes[i]->getCarre_en().afficher(r);
+
   }
   for(int i=0; i<mes_joueurs.size(); i++){
     mes_joueurs[i]->afficher(r);
+    //mes_joueurs[i]->getCercle_j().afficher(r);
   }
 
 }
@@ -176,7 +197,7 @@ void Partie::partie(sf::RenderWindow& r){
     afficher(r);
     r.display();
     } else{
-  
+
   r.clear();
   fin(r);
   r.display();

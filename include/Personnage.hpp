@@ -3,7 +3,16 @@
 #include "Arme.hpp"
 #include "ObjetDynamique.hpp"
 
+/**
 
+ * @file	ObjetFixe.hpp
+ * @brief	contient la classe des objets fixe;
+ * @author Teddy Magoga
+ <teddy.magoga@etu.sorbonne-universite.fr>
+ * @note fait appel à du SFML pour l'affichage
+ * @date	2022
+ * @copyright	droits reservés aux élèves de Polytech.
+*/
 
 
 class Personnage: public ObjetDynamique{

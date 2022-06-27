@@ -55,7 +55,6 @@ bool Joueur::collision(const Ennemi& e){
   if(cercle_j.collision(e.getCarre_en())  && abs(difftime(last_col, col_time))>3){
     time(&last_col);
     niveauDeVie=niveauDeVie-50;
-    std::cout<< "col jo e"<<std::endl;
     return true;
   }
   else return false;

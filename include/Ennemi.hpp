@@ -5,6 +5,7 @@
 #include <ctime>
 
 
+
 class Ennemi: public Personnage{
 protected:
   //Arme arme;
@@ -15,9 +16,12 @@ public:
   Ennemi(const int& posx, const int& posy);
   void seDeplacer();
   void update();
+  void attaquer();
+
+  //accesseur
   Carre getCarre_en(){return carre_en;}
   const Carre& getCarre_en() const { return carre_en;}
-  void attaquer();
+
 
 
 

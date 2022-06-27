@@ -3,11 +3,13 @@
 #include "SFML/Graphics.hpp"
 #include "Objet.hpp"
 
+
+
+
 class ObjetFixe: public Objet{
 
 public:
 
-  //void addObF(objetF_ptr o);
   void afficher(sf::RenderWindow& r){
     r.draw(image.get_sprite());
   }

@@ -5,40 +5,59 @@
 #include "Image.hpp"
 #include "Forme.hpp"
 
+/**
+
+ * @file	Objet.hpp
+ * @brief	classe dont tous les autres héritent, contient le coordonnées
+ * @author Teddy Magoga
+ <teddy.magoga@etu.sorbonne-universite.fr>
+ * @note fait appel à du SFML pour l'affichage
+ * @date	2022
+ * @copyright	droits reservés aux élèves de Polytech.
+*/
+
+/**
+ * @class	Objet
+ * @brief	représente un objet
+ *
+ */
 
 
 class Objet{
+
 protected:
   int posX;
   int posY;
-  float niveauDeVie;
+  float niveauDeVie; //de l'Objet 
   Image image;
 
 public:
-  //accesseur
+  //accesseur et Mutateur
   int getPosX(){return posX;}
   int getPosY(){return posY;}
   const int& getPosX() const{return posX;}
   const int& getPosY() const{ return posY;}
+
   float getNiveauDeVie() {return niveauDeVie;}
   const float& getNiveauDeVie() const {return niveauDeVie;}
+
   const Image& getImage() const { return image;}
+
+  //Mutateurs
   void setPosX(const int& posx){this->posX=posx;}
   void setPosY(const int& posy){this->posY=posy;}
+
   void setNiveauDeVie(const float& ndv){ niveauDeVie=ndv;}
 
 
 
-
-  //virtual void afficher(sf::RenderWindow &r)=0;
-  //virtual void cacher(Ui ui&);
-
-  //methode
-
-  //virtual void update()=0;
-  //virtual void afficher()=0;
-
 };
+
+/**
+ * @typedef	objet_ptr
+ * @brief	smart pointer vers Objet
+ *
+ */
 
 typedef std::shared_ptr<Objet> objet_ptr;
 

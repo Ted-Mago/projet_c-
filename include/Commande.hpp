@@ -2,6 +2,10 @@
 #define COMMANDE_HPP
 #include "SFML/Graphics.hpp"
 #include "Joueur.hpp"
+
+//clase pour la commande des Joueur
+
+
 class Commande{
 protected:
   sf::Keyboard::Key left;

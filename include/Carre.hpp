@@ -3,7 +3,11 @@
 #include "Forme.hpp"
 #include <cmath>
 #include "SFML/Graphics.hpp"
-//class Cercle;
+
+
+
+
+
 class Carre: public Forme{
 protected:
   int cote;
@@ -14,13 +18,10 @@ public:
   int getCote() { return cote;}
   bool collision(const Carre& c) const;
   bool collision(const Cercle& c) const;
-  void afficherC(sf::RenderWindow& r){
-    sf::RectangleShape circle;
-    circle.setSize(sf::Vector2f(cote, cote));
-    circle.setFillColor(sf::Color::Red);
-    circle.setPosition(getPosX(), getPosY());
-    r.draw(circle);
-  }
+  void afficher(sf::RenderWindow& r){  sf::RectangleShape rectangle(sf::Vector2f(cote,cote));
+    rectangle.setPosition(posX, posY); // We must convert the center position to the top left point position
+
+    r.draw(rectangle); ; }
 };
 
 

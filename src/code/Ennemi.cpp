@@ -4,8 +4,8 @@ Ennemi::Ennemi(const int& posx, const int& posy){
   this->posX=posx;
   this->posY=posy;
   niveauDeVie=100;
-  vitesseX=1;
-  vitesseY=1;
+  vitesseX=2;
+  vitesseY=2;
   image= *(new Image(img_name, 0, 0, size_en, size_en, posX, posY));
   arme=*(new Arme(posX+size_en, posY+size_en));
   carre_en=*(new Carre(posX, posY, size_en));
