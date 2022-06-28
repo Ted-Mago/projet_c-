@@ -8,10 +8,10 @@ Joueur::Joueur(int posX, int posY, std::string s){
   niveauDeVie=100;
   vitesseX=2;
   vitesseY=2;
-  image= *(new Image(s, 0, 0, size_jo, size_jo, posX, posY));
+  image= *(new Image(s, 1, 1, size_jo, size_jo, posX, posY));
   cercle_j=*(new Cercle(posX, posY, size_jo/2));
   last_dir=2;
-  arme=*(new Arme(posX+size_jo, posY+size_jo));
+  arme=Arme(posX+size_jo, posY+size_jo);
   time(&last_col);
 }
 
@@ -60,12 +60,12 @@ bool Joueur::collision(const Ennemi& e){
   else return false;
 }
 
-bool Joueur::collision(Munition& m){
+bool Joueur::collision(Munition* m){
   time(&col_time);
-  if(cercle_j.collision(m.getCercle_min()) && abs(difftime(last_col, col_time))>3){
+  if(cercle_j.collision(m->getCercle_min()) && abs(difftime(last_col, col_time))>3){
     time(&last_col);
-    niveauDeVie=niveauDeVie-m.getChargeDest();
-    m.setNiveauDeVie(0);
+    niveauDeVie=niveauDeVie-m->getChargeDest();
+    m->setNiveauDeVie(0);
     return true;
   }
   else return false;

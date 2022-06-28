@@ -36,6 +36,7 @@ void Arme::update(){
       if(projectiles[i]->getNiveauDeVie()==0){
         delete projectiles[i];
         projectiles.erase(projectiles.begin()+i);
+        nbr_tir--;
       }
 
     else  projectiles[i]->update();

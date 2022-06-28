@@ -3,6 +3,7 @@
 #include "Forme.hpp"
 #include <cmath>
 #include "SFML/Graphics.hpp"
+#include "configuration.hpp"
 
 
 

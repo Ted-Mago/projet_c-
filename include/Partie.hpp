@@ -45,7 +45,7 @@ public:
     Commande cmd2(sf::Keyboard::Q, sf::Keyboard::D, sf::Keyboard::Z, sf::Keyboard::W, sf::Keyboard::A );
     mes_cmd.push_back(cmd2);
 
-    joueur_ptr j1=std::make_shared<Joueur>(550,240, j1_img);
+    joueur_ptr j1=std::make_shared<Joueur>(40,500, j1_img);
     joueur_ptr j2=std::make_shared<Joueur>(40,240, j2_img );
     mes_joueurs.push_back(j1);
     mes_joueurs.push_back(j2);

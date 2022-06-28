@@ -3,6 +3,7 @@
 #include "../../include/configuration.hpp"
 
 
+
 bool Cercle::collision(const Cercle& c) const{
       int r_2=pow(this->getRayon()+c.getRayon(), 2);
       int x_2=pow(this->getPosX()-c.getPosX(), 2);
@@ -17,8 +18,8 @@ bool Cercle::collision(const Cercle& c) const{
 bool Cercle::collision(const Carre& c) const{
 
 
-      int x=abs(getPosX()-2*getRayon()-c.getPosX());
-      int y=abs(getPosY()-2*getRayon()-c.getPosY());
+      int x=abs(getPosX()-2*getRayon()-c.getPosX()+size_min);
+      int y=abs(getPosY()-2*getRayon()-c.getPosY()+size_min);
       int dist=(c.getCote()/2 +getRayon());
 
       if(x>dist || y>dist)

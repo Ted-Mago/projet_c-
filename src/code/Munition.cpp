@@ -61,10 +61,10 @@ bool Munition::collision(const Mur& m){
 
 }
 
-bool Munition::collision(Munition& m){
-  if(cercle_min.collision(m.cercle_min)){
+bool Munition::collision(Munition* m){
+  if(cercle_min.collision(m->cercle_min)){
     niveauDeVie=0;
-    m.niveauDeVie=0;
+    m->niveauDeVie=0;
     return true;
   }
   else return false;

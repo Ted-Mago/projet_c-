@@ -25,7 +25,7 @@ protected:
     std::vector<Munition*> projectiles; //bal tiré
     time_t t_entre_tir;
     time_t last_tir; //temps du dernier tir
-    int nbr_tir;
+    int nbr_tir=0;
 
 public:
     Arme(const int& posx, const int& posy);
@@ -43,6 +43,7 @@ public:
     Munition& getMunition(){ return munition;}
     const Munition& getMunition() const{ return munition;}
     const Munition* getMunition_t(int i) const{return projectiles[i];}
+    Munition* getMunition_t(int i) {return projectiles[i];}
 
     void setNbr_muni(int nbr){ nbr_munitions=nbr;}
     int getDirection(){return direction;}

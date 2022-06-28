@@ -21,7 +21,7 @@ void Partie::creerCarte(){
 
  }
  /*mur aleatoire et paku*/
-
+/*
 
  for(int i=0; i<3; i++){
 
@@ -53,7 +53,25 @@ void Partie::creerCarte(){
     paku_ptr paku= std::make_shared<Paku>((i+2)*size_mur, size_mur);
     mes_paku.push_back(paku);
     nbr_paku++;
- }
+ }*/
+
+
+ for( int i=0; i<5; i++)
+  for(int j=0; j<5; j++){
+    if(j%2==0 )
+    {mur_ptr mur=std::make_shared<Mur>(20+i*170, 20+j*170);
+  //  else   mur_ptr mur=std::make_shared<Mur>(60+i*170, 60+j*170);
+    nbr_paku++;
+    mes_murs.push_back(mur);}
+
+    else if(j%2==1 && i%2==1){
+      mur_ptr mur=std::make_shared<Mur>(20+i*170, 20+j*170);
+      nbr_paku++;
+      mes_murs.push_back(mur);
+
+    }
+  }
+
 }
 void Partie::init() {
   creerCarte();
@@ -61,7 +79,7 @@ void Partie::init() {
   /*création fantomes*/
 
   for( int i=0; i<6; i++){
-    en_ptr fantome=std::make_shared<Ennemi>((i+1)*2*size_mur, size_mur*3);
+    en_ptr fantome=std::make_shared<Ennemi>(size_mur+i*size_mur, size_mur*i-size_jo*i%2);
     mes_fantomes.push_back(fantome);
   }
 
@@ -89,8 +107,17 @@ void Partie::collision(){
       mes_joueurs[i]->collision(*mes_fantomes[j]);
     }
 
+
+
   }
 
+  for(int j=0; j<mes_joueurs[0]->getArme().getNbr_tir(); j++){
+    mes_joueurs[1]->collision(mes_joueurs[0]->getArme().getMunition_t(j));
+  }
+
+  for(int j=0; j<mes_joueurs[1]->getArme().getNbr_tir(); j++){
+    mes_joueurs[0]->collision(mes_joueurs[1]->getArme().getMunition_t(j));
+  }
 
 
 
@@ -164,16 +191,16 @@ void Partie::afficher(sf::RenderWindow& r){
     mes_paku[i]->afficher(r);}
   for(int i=0; i<mes_murs.size(); i++){
     mes_murs[i]->afficher(r);
-  //  mes_murs[i]->getCarre_mur().afficher(r);
+ //mes_murs[i]->getCarre_mur().afficher(r);
   }
   for(int i=0; i<mes_fantomes.size(); i++){
     mes_fantomes[i]->afficher(r);
-  //  mes_fantomes[i]->getCarre_en().afficher(r);
+   //mes_fantomes[i]->getCarre_en().afficher(r);
 
   }
   for(int i=0; i<mes_joueurs.size(); i++){
     mes_joueurs[i]->afficher(r);
-    //mes_joueurs[i]->getCercle_j().afficher(r);
+  //mes_joueurs[i]->getCercle_j().afficher(r);
   }
 
 }

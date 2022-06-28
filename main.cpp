@@ -15,7 +15,7 @@
 int main()
 {
     // Create the main window
-    sf::RenderWindow app(sf::VideoMode(800, 800), "Partie");
+    sf::RenderWindow app(sf::VideoMode(size_win, size_win), "Partie");
     app.setFramerateLimit(60);
 
     Partie *p= new Partie();

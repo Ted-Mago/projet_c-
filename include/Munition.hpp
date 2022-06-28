@@ -24,7 +24,7 @@ public:
   void update();
   void afficher(sf::RenderWindow &r);
   bool collision(const Mur& m);
-  bool collision(Munition& m);
+  bool collision(Munition* m);
 
 
   const Cercle& getCercle_min() const{return cercle_min;}
